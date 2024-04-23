@@ -1,0 +1,92 @@
+
+.center-title {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 30px;
+    background-color:#FFA407;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+  }
+
+  h1 {
+    color: #343a40;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th,
+  td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  th {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  .add-button {
+    margin-top: 20px;
+  }
+
+  /* Custom CSS for navbar */
+
+  nav.navbar-custom {
+    background-color: #007bff !important;
+  }
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 10px;
+}
+
+.navbar-nav .nav-link {
+  font-size: 18px;
+  color: #333; /* Change color as needed */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff; /* Change color as needed */
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgdmlld0JveD0iMCAwIDI4IDI4Ij4KICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPHBvbHlnb24gZmlsbD0iIzAwNzAwMCIgcG9pbnRzPSIxMiAxMiAyIDAgMCA1IDEyIDEyIDAgMCA1IDIiLz4KICA8L2c+Cjwvc3ZnPgo=');
+}
+
+.btn-outline-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
