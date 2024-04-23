@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirm Deletion</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/styles.css' %}"
+    />
+  </head>
+  <body style="background-image: url('{% static 'bg1.jpg' %}')">
+    {% include 'students/navbar.html' %}
+    <div class="container mt-5">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="center-title display-5">Confirm Deletion</h1>
+          <p>Are you sure you want to delete student '{{ student.name }}'?</p>
+          <form method="post">
+            {% csrf_token %}
+            <div class="text-center">
+              <button type="submit" class="btn btn-danger mr-2">Confirm</button>
+              <a href="{% url 'student_list' %}" class="btn btn-secondary"
+                >Cancel</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!-- templates/students/student_list.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student List</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/styles.css' %}"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .login-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      button {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      p {
+        text-align: center;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body style="background-image: url('{% static 'bg1.jpg' %}')">
+    {% include 'students/navbar.html' %}
+    <div
+      class="container"
+      style="
+        background-color: white;
+        width: 900px !important;
+        height: 400px !important;
+      "
+    >
+      <h1 align="center" style="color: #333; font-size: 36px; margin-top: 20px">
+        Student List
+      </h1>
+      <table class="table table-bordered" style="background-color: white">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for student in students %}
+          <tr>
+            <td>{{ student.student_id }}</td>
+            <td>{{ student.name }}</td>
+            <td>
+              <a href="{% url 'student_detail' student.id %}">View</a> |
+              <a href="{% url 'student_edit' student.id %}">Edit</a> |
+              <a href="{% url 'student_delete' student.id %}">Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="add-button" style="text-align: center">
+        <button class="btn btn-primary">
+          <a href="{% url 'student_create' %}" style="color: white"
+            >Add Student</a
+          >
+        </button>
+      </div>
+    </div>
+    <br />
+  </body>
+</html>
