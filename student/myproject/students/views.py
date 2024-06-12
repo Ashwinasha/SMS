@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Student
 from .forms import StudentForm
+from django.contrib import messages
 
 def student_list(request):
     students = Student.objects.all()
@@ -20,12 +21,14 @@ def student_create(request):
         dob = request.POST.get('date_of_birth')  # Corrected field name
         address = request.POST.get('address')
         
-        # Create a new student object and save it to the database
-        student = Student(student_id=student_id, name=name, age=age, email=email, date_of_birth=dob, address=address)  # Corrected field name
-        student.save()
-        
-        # Redirect to the student list page after saving the student
-        return redirect('student_list')
+        if Student.objects.filter(student_id=student_id).exists():
+            messages.error(request, 'Student ID already exists. Please use a different ID.')
+        else:
+            # Create and save the new student object
+            student = Student(student_id=student_id, name=name, age=age, email=email, date_of_birth=dob, address=address)
+            student.save()
+            messages.success(request, 'Student added successfully.')
+            return redirect('student_list')
     
     # Render the form template for GET requests
     return render(request, 'students/student_form.html')
